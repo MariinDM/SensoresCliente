@@ -1,0 +1,26 @@
+mat-card {
+  margin: 2em auto;
+  text-align: center;
+  width: 50%;
+  border: 1px double;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.contenedor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  background-size: 100%;
+}
+
+.registrate {
+  color: aqua;
+}

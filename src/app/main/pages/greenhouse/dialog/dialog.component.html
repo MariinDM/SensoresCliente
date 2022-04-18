@@ -1,0 +1,16 @@
+<form class="form-cont" [formGroup]="invForm" (ngSubmit)="update()">
+    <h2 mat-dialog-title>User Update</h2>
+    <mat-dialog-content class="mat-typography">
+      <div class="cont-input">
+        <mat-form-field>
+          <input matInput type="text" name="invernadero" minlength="3" required placeholder="Invernadero"
+            required formControlName="invernadero" [value]="inv.invernadero"/>
+        </mat-form-field>
+      </div>
+      <br>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button [mat-dialog-close]="true" color="primary" cdkFocusInitial type="submit">Update</button>
+    </mat-dialog-actions>
+  </form>

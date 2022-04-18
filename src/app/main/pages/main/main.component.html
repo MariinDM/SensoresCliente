@@ -1,0 +1,119 @@
+<div class="example-container">
+  <!-- INICIO DEL NAVBAR -->
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">INVERNADERO</h1>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item>
+        <span (click)="logout()">
+          <mat-icon>cancel</mat-icon>Cerrar Sesión
+        </span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+  <!-- FIN DEL NAVBAR -->
+
+  <!-- MENU IZQUIERDO -->
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav fixedTopGap="80">
+      <mat-accordion class="example-headers-align" multi>
+        <!-- USUARIOS -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon>person</mat-icon>Usuarios
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-action-row class="separate">
+            <a mat-button color="primary" routerLink="prueba/user">
+              <mat-icon>person_add</mat-icon>Agregar Usuario
+            </a>
+          </mat-action-row>
+          <mat-action-row class="separate">
+            <a mat-button color="primary" routerLink="prueba/table">
+              <mat-icon>list</mat-icon>Ver Usuarios
+            </a>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <!-- FIN USUARIOS -->
+        <!-- INVERNADEROS -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon>home</mat-icon>Invernaderos
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-action-row class="separate">
+            <a mat-button color="primary" routerLink="greenhouse/invernadero">
+              <mat-icon>add</mat-icon>Agregar Invernadero
+            </a>
+          </mat-action-row>
+          <mat-action-row class="separate">
+            <a mat-button color="primary" routerLink="greenhouse/table">
+              <mat-icon>list</mat-icon>Ver Invernaderos
+            </a>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <!-- FIN INVERNADEROS -->
+        <!-- SECCIONES -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon>supervised_user_circle</mat-icon>Secciones
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-action-row class="separate">
+            <a mat-button color="primary" routerLink="section/seccion">
+              <mat-icon>person_add</mat-icon>Agregar Seccion
+            </a>
+          </mat-action-row>
+          <mat-action-row class="separate">
+            <a mat-button color="primary" routerLink="section/table">
+              <mat-icon>list</mat-icon>Ver Secciones
+            </a>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <!-- FIN SECCIONES -->
+        <!-- SENSORES -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon>power</mat-icon>Sensores
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-action-row class="separate">
+            <a mat-button color="primary" routerLink="sensor/tsensor">
+              <mat-icon>add</mat-icon>Agregar Tipos de Sensores
+            </a>
+          </mat-action-row>
+          <mat-action-row class="separate">
+            <a mat-button color="primary" routerLink="sensor/table">
+              <mat-icon>list</mat-icon>Ver Tipos de Sensores
+            </a>
+          </mat-action-row>
+          <mat-action-row class="separate">
+            <a mat-button color="primary" routerLink="sensor/sensores">
+              <mat-icon>add</mat-icon>Agregar Sensor
+            </a>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <!-- FIN SENSORES -->
+      </mat-accordion>
+    </mat-sidenav>
+
+    <!-- FIN DEL MENU IZQUIERDO -->
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

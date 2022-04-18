@@ -1,0 +1,24 @@
+<br><br>
+<div class="container">
+    <h1 class="text">USUARIOS</h1>
+    <table class="table">
+        <thead>
+            <tr class="text">
+                <th scope="col">EMAIL</th>
+                <th scope="col">ACTIVATED</th>
+                <th scope="col">ROLE</th>
+                <th scope="col">UPDATE</th>
+                <th scope="col">DESACTIVED</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of dataUsers" class="text">
+                <td>{{item.email}}</td>
+                <td>{{item.is_activated}}</td>
+                <td>{{item.rolid}}</td>
+                <td><button mat-mini-fab color="primary" (click)="openDialog(item.id)"><mat-icon>update</mat-icon></button></td>
+                <td><button mat-mini-fab color="warn" (click)="delete(item.id)"><mat-icon>delete</mat-icon></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

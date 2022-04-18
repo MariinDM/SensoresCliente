@@ -1,0 +1,30 @@
+<form class="form-cont" [formGroup]="loginForm" (ngSubmit)="update()">
+  <h2 mat-dialog-title>User Update</h2>
+  <mat-dialog-content class="mat-typography">
+    <div class="cont-input">
+      <mat-form-field>
+        <input matInput placeholder="Email" type="email" name="email" aria-describedby="emailHelp" required
+          formControlName="email" [value]="user.email"/>
+      </mat-form-field>
+      <br>
+      <!-- <mat-form-field>
+        <input matInput type="password" name="password" minlength="8"  required  id="inpPassword"  placeholder="Password" required  formControlName="password" [value]="user.password"/>
+      </mat-form-field> -->
+      <br>
+      <mat-form-field>
+        <input matInput type="text" name="is_activated" maxlength="1" required placeholder="Activated"
+          required formControlName="is_activated" [value]="user.isActivated"/>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput type="text" name="rolid" maxlength="1" required placeholder="Rol ( 1 / 2 )"
+          required formControlName="rolid" [value]="user.rolid"/>
+      </mat-form-field>
+    </div>
+    <br>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" color="primary" cdkFocusInitial type="submit">Update</button>
+  </mat-dialog-actions>
+</form>

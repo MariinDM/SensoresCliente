@@ -1,0 +1,22 @@
+<div class="contenedor">
+    <mat-card>
+        <mat-card-content>
+            <form class="form-cont" [formGroup]="invForm" (ngSubmit)="register()">
+                <!--  -->
+                <br>
+                <h1>Nuevo Invernadero</h1>
+                <br>
+                <div class="cont-input">
+                    <mat-form-field>
+                        <input matInput placeholder="Invernadero" type="text" minlength="3" name="name" aria-describedby="emailHelp"
+                            required formControlName="invernadero" />
+                    </mat-form-field>
+                    <br>
+                </div>
+                <br>
+                <button mat-raised-button color="primary" type="submit">Insertar</button>
+            </form>
+            <br><br>
+        </mat-card-content>
+    </mat-card>
+</div>

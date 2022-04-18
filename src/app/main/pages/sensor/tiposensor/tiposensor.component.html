@@ -1,0 +1,26 @@
+<div class="contenedor">
+    <mat-card>
+        <mat-card-content>
+            <form class="form-cont" [formGroup]="sensorForm" (ngSubmit)="register()">
+                <!--  -->
+                <br>
+                <h1>Nuevo Tipo de Sensor</h1>
+                <br>
+                <div class="cont-input">
+                    <mat-form-field>
+                        <input matInput placeholder="Seccion" type="text" minlength="5" name="name"
+                            aria-describedby="emailHelp" required formControlName="sensor" />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="Clave" type="text" maxlength="2" name="name"
+                            aria-describedby="emailHelp" required formControlName="clave" />
+                    </mat-form-field>
+                </div>
+                <br>
+                <button mat-raised-button color="primary" type="submit">Insertar</button>
+            </form>
+            <br><br>
+        </mat-card-content>
+    </mat-card>
+</div>

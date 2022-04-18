@@ -1,0 +1,26 @@
+<br><br>
+<div class="container">
+    <h1 class="text">TIPOS DE SENSORES</h1>
+    <table class="table">
+        <thead>
+            <tr class="text">
+                <th scope="col">SENSOR</th>
+                <th scope="col">CLAVE</th>
+                <th scope="col">UPDATE</th>
+                <th scope="col">DESACTIVED</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of dataSensor" class="text">
+                <td>{{item.sensor}}</td>
+                <td>{{item.clave}}</td>
+                <td><button mat-mini-fab color="primary" (click)="openDialog(item.sensorid)">
+                        <mat-icon>update</mat-icon>
+                    </button></td>
+                <td><button mat-mini-fab color="warn" (click)="delete(item.sensorid)">
+                        <mat-icon>delete</mat-icon>
+                    </button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

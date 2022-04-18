@@ -1,0 +1,24 @@
+<br><br>
+<div class="container">
+    <h1 class="text">INVERNADEROS</h1>
+    <table class="table">
+        <thead>
+            <tr class="text">
+                <th scope="col">INVERNADERO</th>
+                <th scope="col">UPDATE</th>
+                <th scope="col">DESACTIVED</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of dataInv" class="text">
+                <td>{{item.invernadero}}</td>
+                <td><button mat-mini-fab color="primary" (click)="openDialog(item.invernaderoid)">
+                        <mat-icon>update</mat-icon>
+                    </button></td>
+                <td><button mat-mini-fab color="warn" (click)="delete(item.invernaderoid)">
+                        <mat-icon>delete</mat-icon>
+                    </button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
