@@ -8,8 +8,13 @@
                 <br>
                 <div class="cont-input">
                     <mat-form-field>
-                        <input matInput placeholder="Invernadero" type="text" minlength="3" name="name" aria-describedby="emailHelp"
-                            required formControlName="invernadero" />
+                        <input matInput placeholder="Invernadero" type="text" minlength="3" name="name"
+                            aria-describedby="emailHelp" required formControlName="invernadero" />
+                        <mat-error
+                            *ngIf="invForm.controls['invernadero'].hasError('required') && (invForm.controls['invernadero'].dirty || 
+                            invForm.controls['invernadero'].touched)">
+                            Invernadero is required
+                        </mat-error>
                     </mat-form-field>
                     <br>
                 </div>

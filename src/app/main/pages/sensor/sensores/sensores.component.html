@@ -1,0 +1,71 @@
+<br><br><br>
+<div class="contenedor">
+    <mat-card>
+        <mat-card-content>
+            <form class="form-cont" [formGroup]="sensorForm" (ngSubmit)="register()">
+                <br>
+                <h1>Nuevo Sensor</h1>
+                <br>
+                <div class="cont-input">
+                    <mat-form-field appearance="fill">
+                        <mat-label>CLAVE</mat-label>
+                        <mat-select  [(ngModel)]="selectValue" formControlName="clave" required>
+                            <mat-option *ngFor="let item of dataTsensor" [value]="item.clave">
+                                {{item.clave}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>PIN 1</mat-label>
+                        <mat-select [formControl]="pin1" required>
+                            <mat-option *ngFor="let item of dataPines" [value]="item.pinid">
+                                {{item.pin}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="selectValue=='TH'" appearance="fill">
+                        <mat-label>PIN 2</mat-label>
+                        <mat-select [formControl]="pin2">
+                            <mat-option *ngFor="let item of dataPines" [value]="item.pinid">
+                                {{item.pin}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>ACTIVATED</mat-label>
+                        <mat-select formControlName="isActivate" required>
+                            <mat-option [value]="true">
+                                True
+                            </mat-option>
+                            <mat-option [value]="false">
+                                False
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>INVERNADERO</mat-label>
+                        <mat-select appearance="fill" formControlName="invernadero" required>
+                            <mat-option *ngFor="let item of dataInv" [value]="item.invernaderoid">
+                                {{item.invernadero}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>SECCION</mat-label>
+                        <mat-select formControlName="seccion" required appearance="fill">
+                            <mat-option *ngFor="let item of dataSeccion" [value]="item.seccionid">
+                                {{item.seccion}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                </div>
+                <br>
+                <button mat-raised-button color="primary" type="submit">Insertar</button>
+            </form>
+            <br><br>
+        </mat-card-content>
+    </mat-card>
+</div>

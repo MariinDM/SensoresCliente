@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Invernadero } from 'src/app/main/Model/invernadero';
 import { errorMessage, successDialog } from 'src/app/shared/alerts/alerts';
@@ -49,7 +49,7 @@ export class InvernaderoComponent implements OnInit {
 
   createFrom():void{
     this.invForm = this.fb.group({
-      invernadero:['', [Validators.required,Validators.minLength(3)]],
+      invernadero: new FormControl('', [Validators.required,Validators.minLength(3)])
     });
   }
 

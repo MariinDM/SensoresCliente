@@ -7,13 +7,15 @@ import { TableComponent } from './table/table.component';
 import { TiposensorComponent } from './tiposensor/tiposensor.component';
 import { ModulesModule } from 'src/app/shared/modules/modules.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SensoresComponent } from './sensores/sensores.component';
 
 
 @NgModule({
   declarations: [
     DialogComponent,
     TableComponent,
-    TiposensorComponent
+    TiposensorComponent,
+    SensoresComponent
   ],
   entryComponents:[DialogComponent],
   imports: [
