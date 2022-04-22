@@ -93,7 +93,7 @@ export class SensoresComponent implements OnInit {
   createFrom():void{
     this.sensorForm = this.fb.group({
       clave:['', [Validators.required,Validators.maxLength(2)]],
-      isActivate:['', [Validators.required]],
+      isActive:['', [Validators.required]],
       seccion:['', [Validators.required]],
       invernadero:['', [Validators.required]],
     });
@@ -101,17 +101,16 @@ export class SensoresComponent implements OnInit {
   pushArray():number[]{
     let pin = this.pin1.value
     this.temporal.push(pin)
-    // this.temporal.push(this.pin1.get('pin1')?.value)
-    // if(this.sensorForm.get('pin2')?.value){
-    //   this.temporal.push(this.pin2.get('pin2')?.value) 
-    // }
+    if(this.pin2.value){
+      this.temporal.push(this.pin2.value) 
+    }
     return this.temporal
   }
   setSensor():void{
     this.sensor = {
       pines: this.temporal,
       clave: this.sensorForm.get('clave')?.value,
-      isActivate: this.sensorForm.get('isActivate')?.value,
+      isActive: this.sensorForm.get('isActivate')?.value,
       seccion: this.sensorForm.get('seccion')?.value,
       invernadero: this.sensorForm.get('invernadero')?.value,
     }

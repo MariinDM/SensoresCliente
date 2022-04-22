@@ -1,7 +1,7 @@
 export interface Sensor {
     pines:any[]
     clave:string
-    isActivate:boolean
+    isActive:boolean
     seccion:number
     invernadero:number
 }

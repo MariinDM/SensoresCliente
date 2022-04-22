@@ -33,6 +33,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 const MaterialsModule = [
   MatDialogModule,
@@ -67,7 +68,8 @@ const MaterialsModule = [
   MatGridListModule,
   MatRadioModule,
   MatDatepickerModule,
-  MatTooltipModule
+  MatTooltipModule,
+  NgApexchartsModule
 ]
 
 @NgModule({
