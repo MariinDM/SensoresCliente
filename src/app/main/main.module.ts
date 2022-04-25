@@ -8,6 +8,8 @@ import { GraficaEjemploComponent } from './pages/grafica-ejemplo/grafica-ejemplo
 import { THComponent } from './pages/graphics/th/th.component';
 import { FrComponent } from './pages/graphics/fr/fr.component';
 import { UsComponent } from './pages/graphics/us/us.component';
+import { IrComponent } from './pages/graphics/ir/ir.component';
+import { HgComponent } from './pages/graphics/hg/hg.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { UsComponent } from './pages/graphics/us/us.component';
     GraficaEjemploComponent,
     THComponent,
     FrComponent,
-    UsComponent
+    UsComponent,
+    IrComponent,
+    HgComponent
   ],
   imports: [
     CommonModule,

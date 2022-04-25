@@ -14,43 +14,18 @@ export class TsensorService {
   constructor(private http:HttpClient) { }
 
   getall(): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}sensors`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}sensors`);
   }
   getone(id:number): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}sensors/${id}`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}sensors/${id}`);
   }
   register(sensor: TSensor): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.post(`${this.serverURL}sensors`, sensor, {headers:reqHeader})
+    return this.http.post(`${this.serverURL}sensors`, sensor,)
   }
   update(id:number, sensor:TSensor):Observable<any>{
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.put(`${this.serverURL}sensors/${id}`, sensor,{headers:reqHeader})
+    return this.http.put(`${this.serverURL}sensors/${id}`, sensor)
   }
   delete(id:number):Observable<any>{
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.delete(`${this.serverURL}sensors/${id}`,{headers:reqHeader})
+    return this.http.delete(`${this.serverURL}sensors/${id}`)
   }
 }

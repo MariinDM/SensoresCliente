@@ -14,43 +14,18 @@ export class SeccionService {
   constructor(private http:HttpClient) { }
 
   getall(): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}secciones`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}secciones`);
   }
   getone(id:number): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}secciones/${id}`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}secciones/${id}`);
   }
   register(seccion: Seccion): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.post(`${this.serverURL}secciones`, seccion, {headers:reqHeader})
+    return this.http.post(`${this.serverURL}secciones`, seccion,)
   }
   update(id:number, seccion:Seccion):Observable<any>{
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.put(`${this.serverURL}secciones/${id}`, seccion,{headers:reqHeader})
+    return this.http.put(`${this.serverURL}secciones/${id}`, seccion)
   }
   delete(id:number):Observable<any>{
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.delete(`${this.serverURL}secciones/${id}`,{headers:reqHeader})
+    return this.http.delete(`${this.serverURL}secciones/${id}`)
   }
 }

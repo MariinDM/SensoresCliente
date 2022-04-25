@@ -41,10 +41,6 @@ export class AuthService {
 
   logout():void{
     const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-   });
     localStorage.removeItem('token')
     this.http.post(`${this.serverURL}logout`,token)
   }

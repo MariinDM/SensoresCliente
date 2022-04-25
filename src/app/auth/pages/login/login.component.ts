@@ -29,13 +29,6 @@ export class LoginComponent implements OnInit {
       });
     }else{
       this.setUser();
-      //Cambiar el Suscribe
-      // this.authService.login(this.user).subscribe((data:any)=>{
-      //   timeMessage('Sesion Iniciada',1500)
-      //   this.router.navigate(['/main/home'])
-      // },error=>{
-      //   errorMessage('Email o Contraseña Incorrecta')
-      // });
       
       //SPINNER
       this.spinner.show()
@@ -46,6 +39,8 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.user).subscribe({
         next: (v) => { 
           this.router.navigate(['/main/home'])
+          console.log(v)
+          localStorage.setItem('rol',v.userLevel)
         },
         error: (e) => errorMessage('Email o Contraseña Incorrecta'),
         complete: () => console.info('complete') 

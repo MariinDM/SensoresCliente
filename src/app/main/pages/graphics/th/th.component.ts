@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartComponent, ApexAxisChartSeries, ApexChart, ApexXAxis, ApexTitleSubtitle } from "ng-apexcharts";
+import { SensorService } from '../../sensor/Service/sensor.service';
 
 
 export type ChartOptions = {
@@ -8,6 +9,12 @@ export type ChartOptions = {
   xaxis: ApexXAxis;
   title: ApexTitleSubtitle;
 }
+
+export interface TH {
+  fecha:string
+  hora:string
+}
+
 @Component({
   selector: 'app-th',
   templateUrl: './th.component.html',
@@ -15,15 +22,24 @@ export type ChartOptions = {
 })
 export class THComponent implements OnInit {
 
+  dataTemperatura: number[] = [33, 34, 35, 33, 32, 54, 35, 33, 32, 54,35, 33, 32, 54]
+  dataHumedad: number[] = [76, 63, 25, 33, 42, 54, 35, 33, 32, 54, 35, 33, 32, 54,]
+  dataFechaHora: any[] = ['23-04-2022', '4:15']
+  dataTodo:any[] = [this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,this.dataFechaHora,]
+
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions> | any;
 
-  constructor() { 
+  constructor(private sensorService: SensorService) {
     this.chartOptions = {
       series: [
         {
-          name: "My-series",
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+          name: "Temperatura",
+          data: [this.dataTemperatura]
+        },
+        {
+          name: "Humedad",
+          data: this.dataHumedad
         }
       ],
       chart: {
@@ -34,12 +50,24 @@ export class THComponent implements OnInit {
         text: "TEMPERATURA Y HUMEDAD"
       },
       xaxis: {
-        categories: ["Jan", "Feb",  "Mar",  "Apr",  "May",  "Jun",  "Jul",  "Aug", "Sep"]
+        categories: this.dataTodo
       }
     };
   }
 
   ngOnInit(): void {
+    this.getall()
+  }
+  getall(): void {
+    // this.sensorService.getall().subscribe((data: any) => {
+    //   data.find.forEach((element: any) => {
+    //     if (element.clave == 'TH') {
+    //       if(element.data)
+    //       this.dataFR.push(element)
+    //     }
+    //   })
+    //   console.log(this.dataFR)
+    // })
   }
 
 }

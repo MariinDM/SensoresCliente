@@ -14,43 +14,18 @@ export class InvernaderoService {
   constructor(private http:HttpClient) { }
 
   getall(): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}invernaderos`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}invernaderos`);
   }
   getone(id:number): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}invernaderos/${id}`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}invernaderos/${id}`);
   }
   register(inv: Invernadero): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.post(`${this.serverURL}invernaderos`, inv, {headers:reqHeader})
+    return this.http.post(`${this.serverURL}invernaderos`, inv)
   }
   update(id:number, invernadero:Invernadero):Observable<any>{
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.put(`${this.serverURL}invernaderos/${id}`, invernadero,{headers:reqHeader})
+    return this.http.put(`${this.serverURL}invernaderos/${id}`, invernadero)
   }
   delete(id:number):Observable<any>{
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.delete(`${this.serverURL}invernaderos/${id}`,{headers:reqHeader})
+    return this.http.delete(`${this.serverURL}invernaderos/${id}`)
   }
 }

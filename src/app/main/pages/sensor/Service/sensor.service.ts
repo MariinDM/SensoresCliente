@@ -13,52 +13,21 @@ export class SensorService {
   constructor(private http:HttpClient) { }
 
   getpines(): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}pines`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}pines`);
   }
-
   getall(): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}sensores`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}sensores`);
   }
   getone(id:number): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}sensores/${id}`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}sensores/${id}`);
   }
   register(sensor: Sensor): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.post(`${this.serverURL}sensores`, sensor, {headers:reqHeader})
+    return this.http.post(`${this.serverURL}sensores`, sensor)
   }
   update(id:number, sensor:Sensor):Observable<any>{
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.put(`${this.serverURL}sensores/${id}`, sensor,{headers:reqHeader})
+    return this.http.put(`${this.serverURL}sensores/${id}`, sensor)
   }
   delete(id:number):Observable<any>{
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.delete(`${this.serverURL}sensores/${id}`,{headers:reqHeader})
+    return this.http.delete(`${this.serverURL}sensores/${id}`)
   }
 }

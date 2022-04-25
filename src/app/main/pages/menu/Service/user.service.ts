@@ -14,35 +14,15 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   getall(): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}users`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}users`);
   }
   getone(id:number): Observable<any> {
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.serverURL}users/${id}`,{headers:reqHeader});
+    return this.http.get(`${this.serverURL}users/${id}`);
   }
   update(id:number, user:User):Observable<any>{
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.put(`${this.serverURL}users/${id}`, user,{headers:reqHeader})
+    return this.http.put(`${this.serverURL}users/${id}`, user)
   }
   delete(id:number):Observable<any>{
-    const token:any = localStorage.getItem('token')
-    const reqHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.delete(`${this.serverURL}users/${id}`,{headers:reqHeader})
+    return this.http.delete(`${this.serverURL}users/${id}`)
   }
 }

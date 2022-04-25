@@ -27,8 +27,8 @@
     <mat-sidenav #snav fixedTopGap="80">
       <mat-accordion class="example-headers-align" multi>
         <!-- USUARIOS -->
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
+        <mat-expansion-panel *ngIf="getRol()">
+          <mat-expansion-panel-header >
             <mat-panel-title>
               <mat-icon>person</mat-icon>Usuarios
             </mat-panel-title>

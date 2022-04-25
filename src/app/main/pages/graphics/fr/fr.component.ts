@@ -20,14 +20,26 @@ export class FrComponent implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions> | any;
 
-  dataFR: any = []
+  dataFoto: number[] = []
+  dataFecha: string[] = []
+  dataTodo: any[] = []
+
+  dataFR:any
 
   constructor(private sensorService: SensorService) {
+    this.getall()
+  }
+
+  ngOnInit(): void {
+    this.grafica()
+  }
+  grafica(): void {
+    // this.getall()
     this.chartOptions = {
       series: [
         {
-          name: "My-series",
-          data: [0.25, 0.62]
+          name: "Datos",
+          data: this.dataFoto
         }
       ],
       chart: {
@@ -38,20 +50,22 @@ export class FrComponent implements OnInit {
         text: "FOTORESISTENCIA"
       },
       xaxis: {
-        categories: ['0','1']
+        categories: this.dataFecha
       }
     };
   }
 
-  ngOnInit(): void {
-    this.getall()
-  }
   getall(): void {
     this.sensorService.getall().subscribe((data: any) => {
       data.find.forEach((element: any) => {
         if (element.clave == 'FR') {
-          this.dataFR.push(element)
+          this.dataFR = element.data
         }
+      })
+      this.dataFR.forEach((element2: any) => {
+        this.dataFecha.push(element2.fecha)
+        this.dataFoto.push(element2.valor)
+        // console.log(element2)
       })
       console.log(this.dataFR)
     })
